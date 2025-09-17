@@ -8822,33 +8822,50 @@ export default theme;`;
 	  }, isExpanded ? /*#__PURE__*/React.createElement(OpenInFullIcon, null) : /*#__PURE__*/React.createElement(CloseFullscreenIcon, null))), /*#__PURE__*/React.createElement("p", null, "test"), /*#__PURE__*/React.createElement("p", null, "test2"), /*#__PURE__*/React.createElement("p", null, "test3"), /*#__PURE__*/React.createElement("p", null, "test4"));
 	};
 
-	function App() {
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Multi Collumn Expander"), /*#__PURE__*/React.createElement("label", {
-	    for: "panelsShown"
-	  }, "Choose the number of panels to show:"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
-	    id: "panelsShown",
+	function List() {
+	  const [shownPanels, setShownPanels] = reactExports.useState(0);
+	  const panelList = [];
+	  const updateShownPanels = event => {
+	    let value = event.target.value++;
+	    setShownPanels(value);
+	  };
+	  const panels = [{
+	    title: "Books",
+	    headerColor: "red"
+	  }, {
+	    title: "Books",
+	    headerColor: "blue"
+	  }, {
+	    title: "Books",
+	    headerColor: "Gray"
+	  }, {
+	    title: "Books",
+	    headerColor: "purple"
+	  }];
+	  panels.forEach((panel, index) => {
+	    if (index < shownPanels) {
+	      panelList.push(/*#__PURE__*/React.createElement(Panel, {
+	        title: panel.title,
+	        headerBGColor: panel.headerColor
+	      }));
+	    }
+	  });
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Choose the number of panels to show:"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
 	    max: 4,
-	    min: 1,
 	    type: "range",
-	    list: "numPanels"
-	  }), /*#__PURE__*/React.createElement("div", {
+	    list: "numPanels",
+	    onChange: updateShownPanels,
+	    value: shownPanels
+	  }), /*#__PURE__*/React.createElement("p", null, shownPanels), /*#__PURE__*/React.createElement("div", {
 	    className: "panelGroup",
 	    style: {
 	      display: "flex"
 	    }
-	  }, /*#__PURE__*/React.createElement(Panel, {
-	    title: "Books Read",
-	    headerBGColor: "Gray"
-	  }), /*#__PURE__*/React.createElement(Panel, {
-	    title: "Calls Made",
-	    headerBGColor: "red"
-	  }), /*#__PURE__*/React.createElement(Panel, {
-	    title: "Work out completed",
-	    headerBGColor: "green"
-	  }), /*#__PURE__*/React.createElement(Panel, {
-	    title: "Notes taken",
-	    headerBGColor: "purple"
-	  })));
+	  }, panelList));
+	}
+
+	function App() {
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Multi Collumn Expander"), /*#__PURE__*/React.createElement(List, null));
 	}
 
 	ReactDOM.createRoot(document.querySelector('#root')).render(/*#__PURE__*/React.createElement(App, null));
