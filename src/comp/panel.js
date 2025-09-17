@@ -38,7 +38,8 @@ const Panel = ({title, headerBGColor}) => {
                     {
                         isExpanded ? (
                             <OpenInFullIcon />
-                        ) : (
+                        ) :
+                        (
                             <CloseFullscreenIcon />
                         )
                     }
