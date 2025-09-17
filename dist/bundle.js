@@ -8850,16 +8850,17 @@ export default theme;`;
 	      }));
 	    }
 	  });
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Choose the number of panels to show:"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "# of panels to show:"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
 	    max: 4,
 	    type: "range",
 	    list: "numPanels",
 	    onChange: updateShownPanels,
 	    value: shownPanels
-	  }), /*#__PURE__*/React.createElement("p", null, shownPanels), /*#__PURE__*/React.createElement("div", {
+	  }), shownPanels, /*#__PURE__*/React.createElement("div", {
 	    className: "panelGroup",
 	    style: {
-	      display: "flex"
+	      display: "flex",
+	      marginTop: "10px"
 	    }
 	  }, panelList));
 	}

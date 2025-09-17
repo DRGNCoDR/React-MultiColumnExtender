@@ -28,7 +28,7 @@ function List() {
 
     return (
         <div>
-            <label >Choose the number of panels to show:</label><br />
+            <label ># of panels to show:</label><br />
             <input
                 max={4}
                 type='range'
@@ -36,8 +36,9 @@ function List() {
                 onChange={updateShownPanels}
                 value={shownPanels}
             />
-            <p>{shownPanels}</p>
-            <div className="panelGroup" style={{display:"flex"}}>
+            {shownPanels}
+
+            <div className="panelGroup" style={{display:"flex", marginTop:"10px"}}>
                 {panelList}
             </div>
         </div>
