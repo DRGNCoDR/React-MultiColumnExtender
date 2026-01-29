@@ -8786,9 +8786,16 @@ export default theme;`;
 	  d: "M22 3.41 16.71 8.7 20 12h-8V4l3.29 3.29L20.59 2zM3.41 22l5.29-5.29L12 20v-8H4l3.29 3.29L2 20.59z"
 	}), 'CloseFullscreen');
 
+	const panelItems = ["test", "Test 2", "Test3", "Test4"];
+	const itemsList = panelItems.map(item => /*#__PURE__*/React.createElement("p", null, item));
+	const PanelItemList = () => {
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("input", null), /*#__PURE__*/React.createElement("button", null, "Add")), /*#__PURE__*/React.createElement("ul", null, itemsList));
+	};
+
 	const Panel = ({
 	  title,
-	  headerBGColor
+	  headerBGColor,
+	  fontColor
 	}) => {
 	  const [isExpanded, setExpanded] = reactExports.useState("false");
 	  const panel = {
@@ -8802,6 +8809,7 @@ export default theme;`;
 	  };
 	  const panelHeader = {
 	    backgroundColor: headerBGColor,
+	    color: fontColor,
 	    margin: "2px",
 	    width: "100%",
 	    padding: "5px"
@@ -8819,7 +8827,7 @@ export default theme;`;
 	    style: {
 	      float: "right"
 	    }
-	  }, isExpanded ? /*#__PURE__*/React.createElement(OpenInFullIcon, null) : /*#__PURE__*/React.createElement(CloseFullscreenIcon, null))), /*#__PURE__*/React.createElement("p", null, "test"), /*#__PURE__*/React.createElement("p", null, "test2"), /*#__PURE__*/React.createElement("p", null, "test3"), /*#__PURE__*/React.createElement("p", null, "test4"));
+	  }, isExpanded ? /*#__PURE__*/React.createElement(OpenInFullIcon, null) : /*#__PURE__*/React.createElement(CloseFullscreenIcon, null))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(PanelItemList, null)));
 	};
 
 	function List() {
@@ -8831,22 +8839,27 @@ export default theme;`;
 	  };
 	  const panels = [{
 	    title: "Books",
-	    headerColor: "red"
+	    headerColor: "red",
+	    fontColor: "white"
 	  }, {
-	    title: "Books",
-	    headerColor: "blue"
+	    title: "Podcast",
+	    headerColor: "blue",
+	    fontColor: "white"
 	  }, {
-	    title: "Books",
-	    headerColor: "Gray"
+	    title: "Games",
+	    headerColor: "Gray",
+	    fontColor: "white"
 	  }, {
-	    title: "Books",
-	    headerColor: "purple"
+	    title: "Blog",
+	    headerColor: "purple",
+	    fontColor: "white"
 	  }];
 	  panels.forEach((panel, index) => {
 	    if (index < shownPanels) {
 	      panelList.push(/*#__PURE__*/React.createElement(Panel, {
 	        title: panel.title,
-	        headerBGColor: panel.headerColor
+	        headerBGColor: panel.headerColor,
+	        fontColor: panel.fontColor
 	      }));
 	    }
 	  });

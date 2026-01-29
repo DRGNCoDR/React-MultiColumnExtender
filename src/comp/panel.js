@@ -1,8 +1,9 @@
-import React, {useState} from "react";
-import OpenInFullIcon from '@mui/icons-material/OpenInFull';
-import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
+import React, {useState} from "react"
+import OpenInFullIcon from '@mui/icons-material/OpenInFull'
+import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen'
+import PanelItemList from  './panelItemsList'
 
-const Panel = ({title, headerBGColor}) => {
+const Panel = ({title, headerBGColor, fontColor}) => {
     const [isExpanded, setExpanded] = useState("false");
 
     const panel = {
@@ -16,6 +17,7 @@ const Panel = ({title, headerBGColor}) => {
     }
     const panelHeader = {
         backgroundColor: headerBGColor,
+        color: fontColor,
         margin: "2px",
         width: "100%",
         padding: "5px"
@@ -45,11 +47,9 @@ const Panel = ({title, headerBGColor}) => {
                     }
                 </button>
             </div>
-
-            <p>test</p>
-            <p>test2</p>
-            <p>test3</p>
-            <p>test4</p>
+            <div>
+                <PanelItemList />
+            </div>
         </div>
     )
 }

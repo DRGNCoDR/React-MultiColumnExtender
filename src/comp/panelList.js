@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Panel from './panel';
+import React, { useState } from 'react'
+import Panel from './panel'
 
 function List() {
     const [shownPanels, setShownPanels] = useState(0)
@@ -12,16 +12,20 @@ function List() {
     }
 
     const panels = [
-        {title : "Books", headerColor : "red"},
-        {title : "Books", headerColor : "blue"},
-        {title : "Books", headerColor : "Gray"},
-        {title : "Books", headerColor : "purple"},
+        {title : "Books", headerColor : "red", fontColor : "white"},
+        {title : "Podcast", headerColor : "blue", fontColor : "white"},
+        {title : "Games", headerColor : "Gray", fontColor : "white"},
+        {title : "Blog", headerColor : "purple", fontColor : "white"},
     ]
 
     panels.forEach((panel, index) => {
         if (index < shownPanels){
             panelList.push(
-                <Panel title={panel.title} headerBGColor={panel.headerColor}/>
+                <Panel
+                    title={panel.title}
+                    headerBGColor={panel.headerColor}
+                    fontColor={panel.fontColor}
+                />
             )
         }
     })
@@ -29,6 +33,7 @@ function List() {
     return (
         <div>
             <label ># of panels to show:</label><br />
+
             <input
                 max={4}
                 type='range'
@@ -36,9 +41,13 @@ function List() {
                 onChange={updateShownPanels}
                 value={shownPanels}
             />
+
             {shownPanels}
 
-            <div className="panelGroup" style={{display:"flex", marginTop:"10px"}}>
+            <div
+                className="panelGroup"
+                style={{display:"flex", marginTop:"10px"}}
+            >
                 {panelList}
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import List from './comp/list'
+import List from './comp/panelList'
 
 function App() {
 
