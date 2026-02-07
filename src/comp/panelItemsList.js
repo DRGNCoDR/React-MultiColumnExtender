@@ -1,24 +1,39 @@
-import React from "react"
-
-const panelItems = [
-    "test",
-    "Test 2",
-    "Test3",
-    "Test4"
-]
-
-const itemsList = panelItems.map(item => <p>{item}</p>)
+import React, {useState} from "react"
 
 const PanelItemList = () => {
+    const [itemName, setDisplayName] = useState("")
+    const [panelItems, setItems] = useState([])
+
+    const handleClick = () => {
+        setItems(
+            [
+                ...panelItems,
+                {
+                    id : Date.now(),
+                    displayName: itemName
+                }
+            ]
+        )
+    }
+
+    const handleChange = (e) => {
+        setDisplayName(e.target.value)
+    }
+
+    const itemsList = panelItems.map(
+        item =>
+            <ul key={item.id}>
+                <p>{item.displayName}</p>
+            </ul>
+    )
+
     return (
         <div>
             <div>
-                <input />
-                <button>Add</button>
+                <input value={itemName} onChange={handleChange} />
+                <button onClick={handleClick}>Add</button>
             </div>
-            <ul>
-                {itemsList}
-            </ul>
+            {itemsList}
         </div>
     )
 }

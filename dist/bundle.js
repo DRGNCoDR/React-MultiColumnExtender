@@ -8786,10 +8786,27 @@ export default theme;`;
 	  d: "M22 3.41 16.71 8.7 20 12h-8V4l3.29 3.29L20.59 2zM3.41 22l5.29-5.29L12 20v-8H4l3.29 3.29L2 20.59z"
 	}), 'CloseFullscreen');
 
-	const panelItems = ["test", "Test 2", "Test3", "Test4"];
-	const itemsList = panelItems.map(item => /*#__PURE__*/React.createElement("p", null, item));
 	const PanelItemList = () => {
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("input", null), /*#__PURE__*/React.createElement("button", null, "Add")), /*#__PURE__*/React.createElement("ul", null, itemsList));
+	  const [itemName, setDisplayName] = reactExports.useState("");
+	  const [panelItems, setItems] = reactExports.useState([]);
+	  const handleClick = () => {
+	    setItems([...panelItems, {
+	      id: Date.now(),
+	      displayName: itemName
+	    }]);
+	  };
+	  const handleChange = e => {
+	    setDisplayName(e.target.value);
+	  };
+	  const itemsList = panelItems.map(item => /*#__PURE__*/React.createElement("ul", {
+	    key: item.id
+	  }, /*#__PURE__*/React.createElement("p", null, item.displayName)));
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("input", {
+	    value: itemName,
+	    onChange: handleChange
+	  }), /*#__PURE__*/React.createElement("button", {
+	    onClick: handleClick
+	  }, "Add")), itemsList);
 	};
 
 	const Panel = ({
