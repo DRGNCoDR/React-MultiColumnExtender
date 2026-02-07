@@ -38,12 +38,9 @@ const Panel = ({title, headerBGColor, fontColor}) => {
                     style={{float:"right"}}
                 >
                     {
-                        isExpanded ? (
-                            <OpenInFullIcon />
-                        ) :
-                        (
-                            <CloseFullscreenIcon />
-                        )
+                        isExpanded
+                            ? (<OpenInFullIcon /> )
+                            : (<CloseFullscreenIcon />)
                     }
                 </button>
             </div>
