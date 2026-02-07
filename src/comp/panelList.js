@@ -32,7 +32,7 @@ function List() {
 
     return (
         <div>
-            <label ># of panels to show:</label><br />
+            <p># of panels to show:</p><br />
 
             <input
                 max={4}

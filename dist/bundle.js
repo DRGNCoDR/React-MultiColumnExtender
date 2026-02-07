@@ -8798,15 +8798,22 @@ export default theme;`;
 	  const handleChange = e => {
 	    setDisplayName(e.target.value);
 	  };
-	  const itemsList = panelItems.map(item => /*#__PURE__*/React.createElement("ul", {
-	    key: item.id
-	  }, /*#__PURE__*/React.createElement("p", null, item.displayName)));
+	  const itemsList = panelItems.map(item => /*#__PURE__*/React.createElement("li", null, item.displayName));
 	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("input", {
+	    name: "itemNameInput",
+	    style: {
+	      width: "80%"
+	    },
 	    value: itemName,
 	    onChange: handleChange
 	  }), /*#__PURE__*/React.createElement("button", {
 	    onClick: handleClick
-	  }, "Add")), itemsList);
+	  }, "Add")), /*#__PURE__*/React.createElement("ul", {
+	    style: {
+	      listStyleType: "none",
+	      padding: "5px"
+	    }
+	  }, itemsList));
 	};
 
 	const Panel = ({
@@ -8880,7 +8887,7 @@ export default theme;`;
 	      }));
 	    }
 	  });
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "# of panels to show:"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "# of panels to show:"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
 	    max: 4,
 	    type: "range",
 	    list: "numPanels",

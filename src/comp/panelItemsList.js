@@ -22,18 +22,25 @@ const PanelItemList = () => {
 
     const itemsList = panelItems.map(
         item =>
-            <ul key={item.id}>
-                <p>{item.displayName}</p>
-            </ul>
+            <li>
+                {item.displayName}
+            </li>
     )
 
     return (
         <div>
             <div>
-                <input value={itemName} onChange={handleChange} />
+                <input
+                    name="itemNameInput"
+                    style={{width:"80%"}}
+                    value={itemName}
+                    onChange={handleChange}
+                />
                 <button onClick={handleClick}>Add</button>
             </div>
-            {itemsList}
+            <ul style={{listStyleType:"none", padding:"5px"}}>
+                {itemsList}
+            </ul>
         </div>
     )
 }
