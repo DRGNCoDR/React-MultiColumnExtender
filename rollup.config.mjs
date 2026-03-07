@@ -25,15 +25,13 @@ export default {
          preventAssignment: false,
          'process.env.NODE_ENV': '"development"'
       }),
-      serve(
-        {
+      serve({
             open : true,
             verbose : true,
-            contentBase : ["", "dist"],
+            contentBase : ["", "public"],
             host : "localhost",
             port : 1337,
-        }
-      ),
+        }),
       livereload(
         {
             watch : "dist"
