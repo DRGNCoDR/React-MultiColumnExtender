@@ -3,7 +3,7 @@ import React, {useState} from "react"
 const PanelItemList = () => {
     const [itemName, setDisplayName] = useState("")
     const [panelItems, setItems] = useState([])
-
+    var uniqueID = Math.random()
     const handleClick = () => {
         setItems(
             [
